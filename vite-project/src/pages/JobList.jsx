@@ -164,7 +164,8 @@ const JobList = () => {
                   {filteredJobs.map((job, index) => (
                     <tr 
                       key={job.id} 
-                      className="hover:bg-gray-50 transition-colors duration-200"
+                      className="hover:bg-gray-50 transition-all duration-300 transform hover:scale-[1.01] hover:shadow-md stagger-item group"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">{job.title}</div>
