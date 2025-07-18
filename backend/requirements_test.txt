@@ -1,0 +1,2 @@
+# Basic requirements for testing connection
+requests==2.31.0
