@@ -53,25 +53,25 @@ const AddJob = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page-container">
       {/* Modern Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="bg-white shadow-sm border-b border-gray-200 animate-slide-in-left">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => navigate('/jobs')}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-110 focus-ring"
               >
-                <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-gray-600 transition-transform duration-300 hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              <h1 className="text-2xl font-semibold text-gray-900">
+              <h1 className="text-2xl font-semibold text-gray-900 animate-fade-in animation-delay-200">
                 {isEditing ? 'Edit Job Application' : 'Add New Job Application'}
               </h1>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
+            <div className="flex items-center space-x-2 text-sm text-gray-500 animate-fade-in animation-delay-300">
               <span>•</span>
               <span>Keep your applications organized</span>
             </div>
@@ -81,11 +81,11 @@ const AddJob = () => {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden animate-scale-in animation-delay-300 smooth-hover">
           {/* Form Header */}
-          <div className="bg-gradient-to-r from-sky-50 to-blue-50 px-8 py-6 border-b border-gray-100">
+          <div className="bg-gradient-to-r from-sky-50 to-blue-50 px-8 py-6 border-b border-gray-100 animate-slide-in-right animation-delay-500">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center animate-bounce-soft animation-delay-700">
                 <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -101,9 +101,9 @@ const AddJob = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="p-8">
+          <form onSubmit={handleSubmit} className="p-8 animate-fade-in animation-delay-700">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+              <div className="stagger-item">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Job Title*
                 </label>
@@ -111,14 +111,14 @@ const AddJob = () => {
                   type="text"
                   name="title"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white focus:scale-105 focus-ring"
                   value={formData.title}
                   onChange={handleChange}
                   placeholder="e.g. Senior Software Engineer"
                 />
               </div>
               
-              <div>
+              <div className="stagger-item">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Company Name*
                 </label>
@@ -126,28 +126,28 @@ const AddJob = () => {
                   type="text"
                   name="company"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white focus:scale-105 focus-ring"
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="e.g. Google, Microsoft, Apple"
                 />
               </div>
               
-              <div>
+              <div className="stagger-item">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Application Link
                 </label>
                 <input
                   type="url"
                   name="applicationLink"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white focus:scale-105 focus-ring"
                   value={formData.applicationLink}
                   onChange={handleChange}
                   placeholder="https://company.com/careers/job-id"
                 />
               </div>
               
-              <div>
+              <div className="stagger-item">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Date Applied*
                 </label>
@@ -155,20 +155,20 @@ const AddJob = () => {
                   type="date"
                   name="dateApplied"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white focus:scale-105 focus-ring"
                   value={formData.dateApplied}
                   onChange={handleChange}
                 />
               </div>
               
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 stagger-item">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Status*
                 </label>
                 <select
                   name="status"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white focus:scale-105 focus-ring"
                   value={formData.status}
                   onChange={handleChange}
                 >
@@ -180,33 +180,33 @@ const AddJob = () => {
               </div>
             </div>
             
-            <div className="mt-8">
+            <div className="mt-8 stagger-item">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Notes
               </label>
               <textarea
                 name="notes"
                 rows="6"
-                className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white resize-none"
+                className="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 bg-gray-50 hover:bg-white resize-none focus:scale-105 focus-ring"
                 value={formData.notes}
                 onChange={handleChange}
                 placeholder="Add any additional notes about this application, interview details, or follow-up actions..."
               ></textarea>
             </div>
             
-            <div className="mt-10 flex items-center justify-end space-x-4">
+            <div className="mt-10 flex items-center justify-end space-x-4 stagger-item">
               <button
                 type="button"
-                className="px-8 py-3 bg-white text-gray-700 font-medium rounded-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+                className="px-8 py-3 bg-white text-gray-700 font-medium rounded-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 transform hover:scale-105 focus-ring"
                 onClick={() => navigate('/jobs')}
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-full hover:from-sky-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center space-x-2"
+                className="px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-full hover:from-sky-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 transform hover:scale-105 btn-shine focus-ring"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span>{isEditing ? 'Update Application' : 'Save Application'}</span>

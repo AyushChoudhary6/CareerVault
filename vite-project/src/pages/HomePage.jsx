@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50 to-blue-100 page-container">
       {/* Hero Section */}
-      <section className="pt-20 pb-32 relative overflow-hidden">
+      <section className="pt-20 pb-32 relative overflow-hidden animate-fade-in">
         {/* Animated background with modern gradient */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -inset-10 opacity-30">
@@ -35,17 +35,17 @@ const HomePage = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-16 max-w-7xl mx-auto">
-            <div className="lg:w-1/2 mb-16 lg:mb-0 text-center lg:text-left">
+            <div className="lg:w-1/2 mb-16 lg:mb-0 text-center lg:text-left animate-slide-in-left">
               <div className="relative">
                 {/* Professional glowing effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 to-blue-500/20 rounded-3xl blur-xl scale-110"></div>
                 
-                <div className="relative bg-white/90 backdrop-blur-lg p-12 rounded-3xl shadow-2xl border border-white/50">
+                <div className="relative bg-white/90 backdrop-blur-lg p-12 rounded-3xl shadow-2xl border border-white/50 smooth-hover">
                   <div className="mb-8">
-                    <span className="inline-block px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-semibold rounded-full mb-8 shadow-lg">
+                    <span className="inline-block px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-semibold rounded-full mb-8 shadow-lg animate-bounce-soft">
                       ✨ Professional Job Tracking Made Simple
                     </span>
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-tight animate-fade-in animation-delay-300">
                       <span className="bg-gradient-to-r from-gray-900 via-sky-700 to-blue-800 bg-clip-text text-transparent">
                         JobTracker
                       </span>
@@ -60,15 +60,14 @@ const HomePage = () => {
                     Transform your job search with intelligent tracking, beautiful analytics, and professional insights.
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-700">
                     <Link
                       to="/auth"
-                      className="group bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold py-4 px-8 rounded-full hover:from-sky-600 hover:to-blue-700 shadow-xl hover:shadow-2xl hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center relative overflow-hidden"
+                      className="group bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold py-4 px-8 rounded-full hover:from-sky-600 hover:to-blue-700 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center relative overflow-hidden btn-shine transform hover:scale-105 focus-ring"
                     >
-                      <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       <span className="relative flex items-center">
                         Get Started
-                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                       </span>
@@ -76,10 +75,10 @@ const HomePage = () => {
                     
                     <Link
                       to="/jobs"
-                      className="group bg-white/90 backdrop-blur-sm text-sky-700 font-semibold py-4 px-8 rounded-full border-2 border-sky-200 hover:bg-sky-50 hover:border-sky-300 hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center"
+                      className="group bg-white/90 backdrop-blur-sm text-sky-700 font-semibold py-4 px-8 rounded-full border-2 border-sky-200 hover:bg-sky-50 hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-105 focus-ring"
                     >
                       View Demo
-                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                       </svg>
                     </Link>
@@ -87,7 +86,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 animate-slide-in-right animation-delay-500">
               <div className="relative">
                 {/* Professional decorative elements */}
                 <div className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl rotate-12 shadow-lg opacity-80"></div>
