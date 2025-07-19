@@ -16,7 +16,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./vite-project
       dockerfile: Dockerfile
     container_name: jobtracker-frontend
     ports:
