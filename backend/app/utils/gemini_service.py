@@ -13,9 +13,19 @@ import re
 from typing import Dict, List, Any, Optional
 import google.generativeai as genai
 from pydantic import BaseModel
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Configure Gemini AI
-GEMINI_API_KEY = "AIzaSyBeWdCT_E-wFw4ZinGb6QWZpqZnOc_Jcxc"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    print("⚠️ WARNING: GEMINI_API_KEY not found in environment variables!")
+    print("⚠️ Please check your .env file and ensure GEMINI_API_KEY is set.")
+else:
+    print(f"✅ Gemini API key loaded successfully (length: {len(GEMINI_API_KEY)})")
+
 genai.configure(api_key=GEMINI_API_KEY)
 
 class InterviewQuestion(BaseModel):
@@ -31,7 +41,16 @@ class CareerAnalysis(BaseModel):
 
 class GeminiCareerService:
     def __init__(self):
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        if not GEMINI_API_KEY:
+            print("❌ GEMINI_API_KEY not found! AI analysis will not work.")
+            self.model = None
+        else:
+            try:
+                self.model = genai.GenerativeModel('gemini-1.5-flash')
+                print("✅ Gemini AI model initialized successfully")
+            except Exception as e:
+                print(f"❌ Failed to initialize Gemini model: {str(e)}")
+                self.model = None
         
     def analyze_resume_job_match(self, resume_text: str, job_description: str) -> CareerAnalysis:
         """
@@ -40,6 +59,11 @@ class GeminiCareerService:
         print(f"🤖 Starting Gemini analysis...")
         print(f"📄 Resume length: {len(resume_text)} characters")
         print(f"💼 Job description length: {len(job_description)} characters")
+        
+        # Check if Gemini model is available
+        if not self.model:
+            print("❌ Gemini model not available - API key missing or invalid")
+            return self._create_emergency_fallback()
         
         try:
             prompt = self._create_analysis_prompt(resume_text, job_description)
@@ -158,6 +182,12 @@ IMPORTANT: Return only valid JSON, no additional text or formatting.
     def _create_simplified_analysis(self, resume_text: str, job_description: str) -> CareerAnalysis:
         """Create a simplified analysis using Gemini when the main prompt fails"""
         print("🔄 Attempting simplified Gemini analysis...")
+        
+        # Check if model is available
+        if not self.model:
+            print("❌ Gemini model not available for simplified analysis")
+            return self._create_emergency_fallback()
+            
         try:
             simplified_prompt = f"""
 You are a career assistant. Analyze this resume and job description:
