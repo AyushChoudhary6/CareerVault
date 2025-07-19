@@ -35,6 +35,24 @@ const Navbar = () => {
             >
               Dashboard
             </NavLink>
+            <NavLink 
+              to="/jobs" 
+              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+            >
+              Jobs
+            </NavLink>
+            <NavLink 
+              to="/analytics" 
+              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+            >
+              Analytics
+            </NavLink>
+            <NavLink 
+              to="/career-assistant" 
+              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+            >
+              AI Assistant
+            </NavLink>
            
             
             <div className="border-l border-gray-200 h-6 mx-4"></div>
@@ -114,6 +132,13 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Analytics
+            </NavLink>
+            <NavLink 
+              to="/career-assistant" 
+              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              AI Assistant
             </NavLink>
             <NavLink 
               to="/profile" 

@@ -17,6 +17,7 @@ import AddJob from './pages/AddJob'
 import JobDetails from './pages/JobDetails'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
+import CareerAssistant from './pages/CareerAssistant'
 
 // AppContent component to handle layout based on current route
 const AppContent = () => {
@@ -36,6 +37,7 @@ const AppContent = () => {
           <Route path="/edit-job/:id" element={<AddJob />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/career-assistant" element={<CareerAssistant />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
