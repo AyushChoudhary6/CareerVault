@@ -5,12 +5,12 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: jobtracker-backend
+    container_name: careervault-backend
     ports:
       - "8000:8000"  # Backend API accessible on localhost:8000
     environment:
       - GEMINI_API_KEY=AIzaSyBeWdCT_E-wFw4ZinGb6QWZpqZnOc_Jcxc
-      - MONGO_URL=mongodb://mongo:27017/jobtracker
+      - MONGO_URL=mongodb://mongo:27017/careervault
     depends_on:
       - mongo
 
@@ -18,7 +18,7 @@ services:
     build:
       context: ./vite-project
       dockerfile: Dockerfile
-    container_name: jobtracker-frontend
+    container_name: careervault-frontend
     ports:
       - "3000:80"  # Frontend accessible on localhost:3000
     depends_on:
@@ -26,10 +26,10 @@ services:
 
   mongo:
     image: mongo:7
-    container_name: jobtracker-mongo
+    container_name: careervault-mongo
     restart: always
     environment:
-      MONGO_INITDB_DATABASE: jobtracker
+      MONGO_INITDB_DATABASE: careervault
     ports:
       - "27017:27017" # MongoDB accessible on localhost:27017
     volumes:
