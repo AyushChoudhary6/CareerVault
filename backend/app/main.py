@@ -7,8 +7,8 @@ It sets up the FastAPI app, includes routers, and configures middleware.
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import auth, jobs
-from app.utils.database import create_tables
+from app.routes import auth, jobs_mongo, ai_career
+from app.utils.mongodb import connect_to_mongo
 
 # Initialize FastAPI app with metadata
 app = FastAPI(
@@ -19,24 +19,30 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Configure CORS for frontend integration - Development Mode (Allow all localhost)
+# Configure CORS for frontend integration - Development Mode
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",  # Allow any localhost port
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001", 
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001"
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
-# Create database tables on startup
+# Initialize MongoDB on startup
 @app.on_event("startup")
 async def startup_event():
-    """Initialize database tables when the application starts"""
-    create_tables()
+    """Initialize MongoDB connection when the application starts"""
+    await connect_to_mongo()
 
 # Include API routers
 app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
-app.include_router(jobs.router, prefix="/api/jobs", tags=["Jobs"])
+app.include_router(jobs_mongo.router, prefix="/api/jobs", tags=["Jobs"])
+app.include_router(ai_career.router, prefix="/api/ai", tags=["AI Career Assistant"])
 
 # Root endpoint
 @app.get("/", tags=["Health Check"])
