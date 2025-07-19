@@ -1,0 +1,3 @@
+Hello, this is a test resume.
+I have experience in Python, JavaScript, and React.
+I worked at XYZ Company for 3 years as a software developer.
