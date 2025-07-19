@@ -25,6 +25,7 @@ from app.utils.mongodb import connect_to_mongo, close_mongo_connection
 # Import route modules
 from app.routes.auth import router as auth_router
 from app.routes.jobs_mongo import router as jobs_router
+from app.routes.ai_career import router as ai_career_router
 
 
 @asynccontextmanager
@@ -97,6 +98,7 @@ async def health_check():
 # Include route modules
 app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 app.include_router(jobs_router, prefix="/api/jobs", tags=["Jobs"])
+app.include_router(ai_career_router, prefix="/api/ai", tags=["AI Career Assistant"])
 
 
 # Global exception handler
