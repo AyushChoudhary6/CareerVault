@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const CareerAssistant = () => {
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('analyze');
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
@@ -106,12 +108,12 @@ const CareerAssistant = () => {
           </div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">Authentication Required</h2>
           <p className="text-slate-600 mb-6">Please sign in to access the AI Career Assistant and unlock personalized job analysis features.</p>
-          <div className="flex space-x-3">
-            <button className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:from-blue-600 hover:to-indigo-700 transition-all duration-300">
+          <div className="flex justify-center">
+            <button 
+              onClick={() => navigate('/auth')}
+              className="bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:from-sky-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
               Sign In
-            </button>
-            <button className="flex-1 border border-slate-300 text-slate-700 font-semibold py-2 px-4 rounded-lg hover:bg-slate-50 transition-all duration-300">
-              Learn More
             </button>
           </div>
         </div>

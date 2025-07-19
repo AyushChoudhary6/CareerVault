@@ -1,73 +1,199 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
-
-  const handleGetStarted = () => {
-    if (isAuthenticated) {
-      navigate('/dashboard');
-    } else {
-      navigate('/auth');
-    }
-  };
-
-  const handleStartTracking = () => {
-    if (isAuthenticated) {
-      navigate('/dashboard');
-    } else {
-      navigate('/auth');
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50 to-blue-100 page-container">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Professional Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-100/50"></div>
+      
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -inset-10 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-indigo-400 to-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float animation-delay-200"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float animation-delay-400"></div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-20 pb-32 relative overflow-hidden animate-fade-in">
-        {/* Animated background with modern gradient */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -inset-10 opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-sky-300 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-300 to-sky-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <section className="relative z-10 pt-24 pb-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Column - Content */}
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-6">
+                <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-lg rounded-full border border-indigo-200/50 shadow-lg">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full mr-2 animate-pulse"></span>
+                  <span className="text-sm font-semibold text-indigo-700">Next-Gen Career Management</span>
+                </div>
+                
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  <span className="gradient-text-primary">CareerCraft</span>
+                  <br />
+                  <span className="text-slate-800">Professional</span>
+                  <br />
+                  <span className="text-slate-600">Hub</span>
+                </h1>
+                
+                <p className="text-xl text-slate-600 leading-relaxed max-w-lg">
+                  Transform your career journey with intelligent job tracking, AI-powered insights, and professional guidance—all in one beautiful platform.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/auth"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-2xl shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105 group"
+                >
+                  <span>Get Started</span>
+                  <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                
+                <Link
+                  to="/career-assistant"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/80 backdrop-blur-lg text-slate-700 font-semibold rounded-2xl border border-slate-200 shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  Try AI Assistant
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Visual */}
+            <div className="relative animate-slide-in-right animation-delay-200">
+              <div className="relative">
+                {/* Main Card */}
+                <div className="glass-card p-8 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-bold text-slate-800">Career Dashboard</h3>
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl flex items-center justify-center">
+                          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6M8 8v10l4-4 4 4V8" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-slate-800">Applications Sent</p>
+                          <p className="text-2xl font-bold text-indigo-600">47</p>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-slate-100 rounded-xl p-4">
+                        <div className="flex justify-between text-sm text-slate-600 mb-2">
+                          <span>Interview Success Rate</span>
+                          <span>78%</span>
+                        </div>
+                        <div className="w-full bg-slate-200 rounded-full h-2">
+                          <div className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-lg animate-float"></div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl shadow-lg animate-float animation-delay-400"></div>
+              </div>
+            </div>
           </div>
-          
-          {/* Professional floating elements */}
-          <div className="absolute inset-0">
-            {[...Array(15)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute animate-float-slow opacity-20"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 5}s`,
-                  animationDuration: `${4 + Math.random() * 3}s`
-                }}
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="relative z-10 py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+              Everything You Need to <span className="gradient-text-primary">Succeed</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Powerful tools and intelligent insights to streamline your job search and accelerate your career growth.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                ),
+                title: "AI-Powered Insights",
+                description: "Get intelligent recommendations and career guidance powered by advanced AI technology.",
+                gradient: "from-indigo-500 to-purple-600"
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                ),
+                title: "Smart Dashboard",
+                description: "Visualize your progress with beautiful charts and comprehensive analytics.",
+                gradient: "from-blue-500 to-cyan-600"
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                  </svg>
+                ),
+                title: "Professional Tools",
+                description: "Resume analysis, interview prep, and career planning tools all in one place.",
+                gradient: "from-purple-500 to-pink-600"
+              }
+            ].map((feature, index) => (
+              <div 
+                key={index} 
+                className="glass-card p-8 rounded-3xl hover-lift group animate-scale-in"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="w-2 h-2 bg-sky-400 rounded-full"></div>
+                <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-16 max-w-7xl mx-auto">
-            <div className="lg:w-1/2 mb-16 lg:mb-0 text-center lg:text-left animate-slide-in-left">
-              <div className="relative">
-                {/* Professional glowing effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 to-blue-500/20 rounded-3xl blur-xl scale-110"></div>
-                
-                <div className="relative bg-white/90 backdrop-blur-lg p-12 rounded-3xl shadow-2xl border border-white/50 smooth-hover">
-                  <div className="mb-8">
-                    <span className="inline-block px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-semibold rounded-full mb-8 shadow-lg animate-bounce-soft">
-                      ✨ Professional Job Tracking Made Simple
-                    </span>
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-tight animate-fade-in animation-delay-300">
-                      <span className="bg-gradient-to-r from-gray-900 via-sky-700 to-blue-800 bg-clip-text text-transparent">
-                        JobTracker
+      {/* CTA Section */}
+      <section className="relative z-10 py-20">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="glass-card p-12 rounded-3xl animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+              Ready to <span className="gradient-text-primary">Transform</span> Your Career?
+            </h2>
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of professionals who are accelerating their careers with CareerCraft.
+            </p>
+            <Link
+              to="/auth"
+              className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-2xl shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105 group"
+            >
+              <span>Start Your Journey</span>
+              <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
                       </span>
                       <br />
                       <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent">
@@ -81,8 +207,8 @@ const HomePage = () => {
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-700">
-                    <button
-                      onClick={handleGetStarted}
+                    <Link
+                      to="/auth"
                       className="group bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold py-4 px-8 rounded-full hover:from-sky-600 hover:to-blue-700 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center relative overflow-hidden btn-shine transform hover:scale-105 focus-ring"
                     >
                       <span className="relative flex items-center">
@@ -91,7 +217,17 @@ const HomePage = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                       </span>
-                    </button>
+                    </Link>
+                    
+                    <Link
+                      to="/jobs"
+                      className="group bg-white/90 backdrop-blur-sm text-sky-700 font-semibold py-4 px-8 rounded-full border-2 border-sky-200 hover:bg-sky-50 hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-105 focus-ring"
+                    >
+                      View Demo
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -232,8 +368,8 @@ const HomePage = () => {
                 Join thousands of professionals who have streamlined their job search process and achieved better results with JobTrackerPro.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button
-                  onClick={handleStartTracking}
+                <Link
+                  to="/dashboard"
                   className="group bg-white text-sky-700 font-bold py-5 px-12 rounded-full hover:bg-sky-50 shadow-xl hover:shadow-2xl hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center relative overflow-hidden"
                 >
                   <span className="relative flex items-center">
@@ -242,7 +378,17 @@ const HomePage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                   </span>
-                </button>
+                </Link>
+                <Link
+                  to="/jobs"
+                  className="group bg-white/10 backdrop-blur-sm text-white font-bold py-5 px-12 rounded-full border-2 border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center"
+                >
+                  View Demo
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
