@@ -26,13 +26,13 @@ const Sidebar = () => {
       <div className="p-4 flex justify-between items-center border-b border-gray-800">
         {!collapsed && (
           <div className="flex items-center">
-            <div className="h-8 w-8 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold mr-2 shadow-inner">J</div>
-            <h2 className="text-xl font-bold text-blue-400">JobTracker</h2>
+            <div className="h-8 w-8 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold mr-2 shadow-inner">C</div>
+            <h2 className="text-xl font-bold text-blue-400">CareerVault</h2>
           </div>
         )}
         {collapsed && (
           <div className="mx-auto">
-            <div className="h-8 w-8 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold shadow-inner">J</div>
+            <div className="h-8 w-8 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold shadow-inner">C</div>
           </div>
         )}
         <button

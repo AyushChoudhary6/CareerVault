@@ -1,5 +1,5 @@
 """
-Simplified Working FastAPI Backend for Job Tracker
+Simplified Working FastAPI Backend for CareerVault
 
 This is a simplified version that works without type conflicts.
 """
@@ -22,7 +22,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 # Initialize FastAPI
-app = FastAPI(title="Job Tracker API", version="1.0.0")
+app = FastAPI(title="CareerVault API", version="1.0.0")
 
 # Add CORS
 app.add_middleware(
@@ -176,7 +176,7 @@ def create_user(username: str, email: str, hashed_password: str):
 # Routes
 @app.get("/")
 def root():
-    return {"message": "🚀 Job Tracker API is running!", "version": "1.0.0"}
+    return {"message": "🚀 CareerVault API is running!", "version": "1.0.0"}
 
 @app.post("/auth/signup")
 def signup(user: UserSignup):

@@ -1,5 +1,5 @@
 """
-FastAPI Job Tracker Backend - MongoDB Version
+FastAPI CareerVault Backend - MongoDB Version
 
 This is the main application file for the Job Tracker API using MongoDB.
 It includes:

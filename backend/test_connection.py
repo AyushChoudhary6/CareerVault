@@ -1,7 +1,7 @@
 """
-Test Script for Job Tracker Backend Connection
+Test Script for CareerVault Backend Connection
 
-This script tests the basic connectivity and functionality of the Job Tracker backend.
+This script tests the basic connectivity and functionality of the CareerVault backend.
 """
 
 import asyncio
@@ -12,7 +12,7 @@ BASE_URL = "http://localhost:8000"
 
 async def test_backend_connection():
     """Test basic backend connectivity"""
-    print("🔍 Testing Job Tracker Backend Connection...")
+    print("🔍 Testing CareerVault Backend Connection...")
     print("=" * 50)
     
     async with aiohttp.ClientSession() as session:

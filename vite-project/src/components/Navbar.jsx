@@ -16,8 +16,8 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center py-3">
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="h-10 w-10 bg-sky-500 text-white flex items-center justify-center rounded-full font-bold text-xl shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md group-hover:bg-sky-600">J</div>
-            <span className="text-xl font-extrabold text-sky-600 transition-all duration-300 group-hover:text-sky-700">JobTrackerPro</span>
+            <div className="h-10 w-10 bg-sky-500 text-white flex items-center justify-center rounded-full font-bold text-xl shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md group-hover:bg-sky-600">C</div>
+            <span className="text-xl font-extrabold text-sky-600 transition-all duration-300 group-hover:text-sky-700">CareerVault</span>
           </Link>
           
           {/* Desktop Navigation */}

@@ -1,7 +1,7 @@
 """
 FastAPI Application Startup Script
 
-Run this script to start the Job Tracker API server.
+Run this script to start the CareerVault API server.
 Usage: python run.py
 """
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     port = int(os.getenv("API_PORT", 8000))
     debug = os.getenv("DEBUG", "True").lower() == "true"
     
-    print("🚀 Starting Job Tracker API...")
+    print("🚀 Starting CareerVault API...")
     print(f"📡 Server: http://{host}:{port}")
     print(f"📚 Documentation: http://{host}:{port}/docs")
     print(f"🔄 Debug Mode: {debug}")

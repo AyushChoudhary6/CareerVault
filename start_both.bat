@@ -1,4 +1,6 @@
-@echo off
+@echo =========================================
+echo    CareerVault Full Stack Startup
+echo =========================================o off
 echo ========================================
 echo    Job Tracker Full Stack Startup
 echo ========================================
@@ -34,19 +36,19 @@ echo.
 
 echo [3/4] Starting Backend Server...
 cd ..\backend
-start "Job Tracker Backend" cmd /k "echo Starting backend on http://localhost:8000 && python main_mongo.py"
+start "CareerVault Backend" cmd /k "echo Starting backend on http://localhost:8000 && python main_mongo.py"
 echo ✅ Backend server starting in new window...
 echo.
 
 echo [4/4] Waiting 5 seconds then starting Frontend...
 timeout /t 5 /nobreak > nul
 cd ..\vite-project
-start "Job Tracker Frontend" cmd /k "echo Starting frontend on http://localhost:3000 && npm run dev"
+start "CareerVault Frontend" cmd /k "echo Starting frontend on http://localhost:3000 && npm run dev"
 echo ✅ Frontend server starting in new window...
 echo.
 
 echo ========================================
-echo    🚀 Job Tracker Started Successfully!
+echo    🚀 CareerVault Started Successfully!
 echo ========================================
 echo Backend API: http://localhost:8000
 echo API Docs: http://localhost:8000/docs
