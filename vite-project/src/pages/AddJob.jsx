@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useJobs } from '../context/JobContext';
+import { useAuth } from '../context/AuthContext';
 
 const AddJob = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { jobs, addJob, updateJob } = useJobs();
+  const { isAuthenticated } = useAuth();
   const isEditing = Boolean(id);
+
+  // Redirect to auth page if user is not authenticated
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth');
+      return;
+    }
+  }, [isAuthenticated, navigate]);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -44,13 +54,30 @@ const AddJob = () => {
         await addJob(formData);
       }
       
-      // Navigate back to jobs list only after successful submission
-      navigate('/jobs');
+      // Navigate back to dashboard only after successful submission
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error saving job:', error);
       // You could add user feedback here, like a toast notification
     }
   };
+
+  // Show loading or redirect if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl border border-slate-200/50 text-center max-w-md w-full mx-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-white animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold text-slate-900 mb-4">Redirecting...</h1>
+          <p className="text-slate-600">Please sign in to access this page.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 page-container">
@@ -60,7 +87,7 @@ const AddJob = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => navigate('/jobs')}
+                onClick={() => navigate('/dashboard')}
                 className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-110 focus-ring"
               >
                 <svg className="w-5 h-5 text-gray-600 transition-transform duration-300 hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -198,7 +225,7 @@ const AddJob = () => {
               <button
                 type="button"
                 className="px-8 py-3 bg-white text-gray-700 font-medium rounded-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 transform hover:scale-105 focus-ring"
-                onClick={() => navigate('/jobs')}
+                onClick={() => navigate('/dashboard')}
               >
                 Cancel
               </button>

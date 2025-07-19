@@ -36,18 +36,6 @@ const Navbar = () => {
               Dashboard
             </NavLink>
             <NavLink 
-              to="/jobs" 
-              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
-            >
-              Jobs
-            </NavLink>
-            <NavLink 
-              to="/analytics" 
-              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
-            >
-              Analytics
-            </NavLink>
-            <NavLink 
               to="/career-assistant" 
               className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
             >
@@ -59,15 +47,12 @@ const Navbar = () => {
             
             {user ? (
               <div className="flex items-center space-x-4 animate-slide-in-right animation-delay-500">
-                <Link 
-                  to="/profile" 
-                  className="flex items-center text-gray-600 hover:text-sky-600 transition-all duration-300 px-3 py-2 rounded-full hover:bg-sky-50 transform hover:scale-105 group"
-                >
-                  <span className="h-9 w-9 rounded-full bg-gradient-to-r from-sky-500 to-sky-600 text-white flex items-center justify-center mr-2 shadow-sm font-medium transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                <div className="flex items-center text-gray-600 px-3 py-2 rounded-full">
+                  <span className="h-9 w-9 rounded-full bg-gradient-to-r from-sky-500 to-sky-600 text-white flex items-center justify-center mr-2 shadow-sm font-medium">
                     {user.username?.charAt(0)?.toUpperCase() || 'U'}
                   </span>
                   <span className="font-medium">{user.username}</span>
-                </Link>
+                </div>
                 <button
                   onClick={logout}
                   className="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 focus-ring"
@@ -120,32 +105,11 @@ const Navbar = () => {
               Dashboard
             </NavLink>
             <NavLink 
-              to="/jobs" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Jobs
-            </NavLink>
-            <NavLink 
-              to="/analytics" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Analytics
-            </NavLink>
-            <NavLink 
               to="/career-assistant" 
               className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               AI Assistant
-            </NavLink>
-            <NavLink 
-              to="/profile" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Profile
             </NavLink>
             
             <div className="border-t border-gray-100 my-2"></div>
