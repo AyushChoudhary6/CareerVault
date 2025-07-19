@@ -1,7 +1,7 @@
 """
 Simple Backend Test - Uses requests library
 
-This script tests the basic connectivity of the Job Tracker backend.
+This script tests the basic connectivity of the CareerVault backend.
 """
 
 import requests
@@ -11,7 +11,7 @@ BASE_URL = "http://localhost:8000"
 
 def test_backend_connection():
     """Test basic backend connectivity"""
-    print("🔍 Testing Job Tracker Backend Connection...")
+    print("🔍 Testing CareerVault Backend Connection...")
     print("=" * 50)
     
     # Test 1: Health Check

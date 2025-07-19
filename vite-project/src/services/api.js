@@ -1,5 +1,5 @@
 /**
- * API Service for Job Tracker Backend
+ * API Service for CareerVault Backend
  * 
  * This module handles all HTTP requests to the FastAPI backend
  * including authentication and job management operations.

@@ -67,11 +67,11 @@ const HomePage = () => {
                     </span>
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-tight animate-fade-in animation-delay-300">
                       <span className="bg-gradient-to-r from-gray-900 via-sky-700 to-blue-800 bg-clip-text text-transparent">
-                        JobTracker
+                        Career
                       </span>
                       <br />
                       <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent">
-                        Pro
+                        Vault
                       </span>
                     </h1>
                   </div>
@@ -114,9 +114,9 @@ const HomePage = () => {
                     <div className="flex items-center justify-between mb-8">
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">J</span>
+                          <span className="text-white font-bold text-lg">C</span>
                         </div>
-                        <span className="font-bold text-sky-700 text-lg">JobTrackerPro</span>
+                        <span className="font-bold text-sky-700 text-lg">CareerVault</span>
                       </div>
                       <div className="w-10 h-10 bg-gradient-to-r from-sky-100 to-blue-100 rounded-full flex items-center justify-center">
                         <div className="w-6 h-6 bg-sky-400 rounded-full"></div>
@@ -229,7 +229,7 @@ const HomePage = () => {
                 Transform Your Job Search Today
               </h2>
               <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Join thousands of professionals who have streamlined their job search process and achieved better results with JobTrackerPro.
+                Join thousands of professionals who have streamlined their job search process and achieved better results with CareerVault.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <button
@@ -256,7 +256,7 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="mb-8 md:mb-0">
               <span className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
-                JobTrackerPro
+                CareerVault
               </span>
               <p className="mt-3 text-gray-300 text-lg">Your professional job search companion</p>
             </div>
@@ -285,7 +285,7 @@ const HomePage = () => {
           
           <div className="border-t border-gray-700 pt-8 text-center">
             <p className="text-gray-400 text-lg">
-              © {new Date().getFullYear()} JobTrackerPro. All rights reserved. Built with ❤️ for professional job seekers.
+              © {new Date().getFullYear()} CareerVault. All rights reserved. Built with ❤️ for professional job seekers.
             </p>
           </div>
         </div>

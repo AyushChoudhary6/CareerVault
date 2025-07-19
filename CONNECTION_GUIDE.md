@@ -1,4 +1,4 @@
-# Job Tracker - Frontend & Backend Connection Guide
+# CareerVault - Frontend & Backend Connection Guide
 
 ## 🚀 Quick Start
 

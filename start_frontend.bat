@@ -1,6 +1,6 @@
 @echo off
 echo ========================================
-echo    Job Tracker Frontend Startup
+echo    CareerVault Frontend Startup
 echo ========================================
 echo.
 
