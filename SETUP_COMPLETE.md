@@ -3,7 +3,7 @@
 ## 🎯 What I Fixed
 
 ### 1. **CORS Configuration**
-- Updated `main_mongo.py` to include both localhost:3000 and localhost:5173 (Vite default ports)
+- Updated `main_mongo.py` to include localhost:3000 (React default port)
 - Added support for both `localhost` and `127.0.0.1` addresses
 - Made CORS configurable via environment variables
 

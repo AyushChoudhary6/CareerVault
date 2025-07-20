@@ -30,7 +30,7 @@ npm run dev
 - **URL**: `http://localhost:8000`
 - **API Docs**: `http://localhost:8000/docs`
 - **Database**: MongoDB (Cloud)
-- **CORS**: Enabled for localhost:3000 and localhost:5173
+- **CORS**: Enabled for localhost:3000
 
 ### Frontend Configuration
 - **URL**: `http://localhost:3000`
@@ -158,7 +158,7 @@ API_PORT=8000
 DEBUG=True
 
 # CORS Configuration
-ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+ALLOWED_ORIGINS=http://localhost:3000
 
 # JWT Configuration
 SECRET_KEY=your-secret-key-here-change-in-production
