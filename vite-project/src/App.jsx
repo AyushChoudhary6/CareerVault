@@ -12,10 +12,7 @@ import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import AuthPage from './pages/AuthPage'
 import Dashboard from './pages/Dashboard'
-import JobList from './pages/JobList'
 import AddJob from './pages/AddJob'
-import JobDetails from './pages/JobDetails'
-import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import CareerAssistant from './pages/CareerAssistant'
 
@@ -26,19 +23,32 @@ const AuthWrapper = ({ children }) => {
   console.log('Auth state:', {
     isLoading: auth.isLoading,
     isAuthenticated: auth.isAuthenticated,
-    error: auth.error?.message
+    error: auth.error,
+    user: auth.user ? 'User loaded' : 'No user'
   });
 
+  // Handle loading state
   if (auth.isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>
+    return <div className="flex items-center justify-center min-h-screen">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-4"></div>
+        <div>Loading...</div>
+      </div>
+    </div>
   }
 
+  // Handle error state
   if (auth.error) {
     return (
       <div className="flex items-center justify-center min-h-screen flex-col space-y-4">
-        <div>Encountering error... {auth.error.message}</div>
+        <div>Error: {auth.error}</div>
         <button 
-          onClick={() => auth.clearStaleState()}
+          onClick={() => {
+            console.log('Clearing auth state and reloading');
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = '/';
+          }}
           className="px-4 py-2 bg-blue-500 text-white rounded"
         >
           Clear and Retry
@@ -47,75 +57,59 @@ const AuthWrapper = ({ children }) => {
     )
   }
 
+  // Handle authenticated state
   if (auth.isAuthenticated) {
     return (
-      <div>
-        <div className="p-4 bg-blue-100 border-b">
-          <span>Hello: {auth.user?.profile?.email || auth.user?.email || 'User'}</span>
-          <button 
-            onClick={() => auth.removeUser()} 
-            className="ml-4 px-4 py-2 bg-red-500 text-white rounded"
-          >
-            Sign out
-          </button>
-        </div>
-        {children}
-      </div>
+      <JobProvider>
+        <Router>
+          <div className="min-h-screen bg-gray-50">
+            <Navbar />
+            
+            <main className="min-h-[calc(100vh-64px)]">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/login" element={<Dashboard />} />
+                <Route path="/auth" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/add-job" element={<AddJob />} />
+                <Route path="/edit-job/:id" element={<AddJob />} />
+                <Route path="/career-assistant" element={<CareerAssistant />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </main>
+          </div>
+        </Router>
+      </JobProvider>
     )
   }
 
+  // Handle unauthenticated state - show homepage
   return (
-    <div className="flex items-center justify-center min-h-screen space-x-4">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4">Welcome to CareerVault</h1>
-        <button 
-          onClick={() => auth.signinRedirect()}
-          className="px-6 py-3 bg-blue-500 text-white rounded"
-        >
-          Sign in with Cognito
-        </button>
-      </div>
-    </div>
+    <JobProvider>
+      <Router>
+        <div className="min-h-screen bg-gray-50">
+          <Navbar />
+          
+          <main className="min-h-[calc(100vh-64px)]">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<HomePage />} />
+              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/dashboard" element={<AuthPage />} />
+              <Route path="/add-job" element={<AuthPage />} />
+              <Route path="/edit-job/:id" element={<AuthPage />} />
+              <Route path="/career-assistant" element={<AuthPage />} />
+              <Route path="/profile" element={<AuthPage />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </JobProvider>
   )
 }
 
-// AppContent component to handle layout based on current route
-const AppContent = () => {
-  const location = useLocation();
-  
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      
-      <main className="min-h-[calc(100vh-64px)]">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<HomePage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/jobs" element={<JobList />} />
-          <Route path="/add-job" element={<AddJob />} />
-          <Route path="/edit-job/:id" element={<AddJob />} />
-          <Route path="/jobs/:id" element={<JobDetails />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/career-assistant" element={<CareerAssistant />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </main>
-    </div>
-  );
-};
-
 function App() {
-  return (
-    <AuthWrapper>
-      <JobProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </JobProvider>
-    </AuthWrapper>
-  );
+  return <AuthWrapper />;
 }
 
 export default App

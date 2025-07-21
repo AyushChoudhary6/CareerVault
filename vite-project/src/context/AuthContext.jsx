@@ -1,4 +1,2 @@
-import { useAuth as useOidcAuth } from 'react-oidc-context';
-
-// Simple re-export of the OIDC auth hook
-export const useAuth = useOidcAuth;
+// Re-export from the simple auth context
+export { useAuth, AuthProvider } from './AuthContext_simple';

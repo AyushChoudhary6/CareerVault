@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAuthenticated } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -22,25 +22,32 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1 animate-fade-in animation-delay-300">
-            <NavLink 
-              to="/" 
-              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
-              end
-            >
-              Home
-            </NavLink>
-            <NavLink 
-              to="/dashboard" 
-              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
-            >
-              Dashboard
-            </NavLink>
-            <NavLink 
-              to="/career-assistant" 
-              className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
-            >
-              AI Assistant
-            </NavLink>
+            {!isAuthenticated && (
+              <NavLink 
+                to="/" 
+                className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+                end
+              >
+                Home
+              </NavLink>
+            )}
+            
+            {isAuthenticated && (
+              <>
+                <NavLink 
+                  to="/dashboard" 
+                  className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+                >
+                  Dashboard
+                </NavLink>
+                <NavLink 
+                  to="/career-assistant" 
+                  className={({isActive}) => `px-4 py-2 rounded-full text-gray-600 hover:text-sky-600 hover:bg-sky-50 transition-all duration-300 font-medium transform hover:scale-105 ${isActive ? 'text-sky-600 bg-sky-50' : ''}`}
+                >
+                  Resume 
+                </NavLink>
+              </>
+            )}
            
             
             <div className="border-l border-gray-200 h-6 mx-4"></div>
@@ -89,28 +96,35 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100 bg-white shadow-lg rounded-b-2xl animate-slide-up">
-            <NavLink 
-              to="/" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 transition-all duration-300 transform hover:scale-105 stagger-item ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'}`}
-              end
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </NavLink>
-            <NavLink 
-              to="/dashboard" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 transition-all duration-300 transform hover:scale-105 stagger-item ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Dashboard
-            </NavLink>
-            <NavLink 
-              to="/career-assistant" 
-              className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              AI Assistant
-            </NavLink>
+            {!isAuthenticated && (
+              <NavLink 
+                to="/" 
+                className={({isActive}) => `block py-3 px-4 rounded-full mx-2 transition-all duration-300 transform hover:scale-105 stagger-item ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'}`}
+                end
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </NavLink>
+            )}
+            
+            {isAuthenticated && (
+              <>
+                <NavLink 
+                  to="/dashboard" 
+                  className={({isActive}) => `block py-3 px-4 rounded-full mx-2 transition-all duration-300 transform hover:scale-105 stagger-item ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Dashboard
+                </NavLink>
+                <NavLink 
+                  to="/career-assistant" 
+                  className={({isActive}) => `block py-3 px-4 rounded-full mx-2 ${isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-600'}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Resume
+                </NavLink>
+              </>
+            )}
             
             <div className="border-t border-gray-100 my-2"></div>
             

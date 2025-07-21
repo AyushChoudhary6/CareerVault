@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { jobsAPI, apiUtils } from '../services/api';
+import { jobsAPI } from '../services/api';
 import { useAuth } from './AuthContext';
 
 // Create context

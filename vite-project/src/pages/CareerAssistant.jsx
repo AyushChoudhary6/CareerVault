@@ -321,7 +321,7 @@ const CareerAssistant = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-4xl font-black bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                          {Math.round(results.match_score)}%
+                          {Math.round(results?.match_score || 0)}%
                         </div>
                         <p className="text-sm text-slate-500 font-semibold">Match Score</p>
                       </div>
@@ -331,17 +331,17 @@ const CareerAssistant = () => {
                     <div className="mb-8">
                       <div className="flex justify-between items-center mb-3">
                         <span className="text-lg font-semibold text-slate-800">Job Fit Score</span>
-                        <span className="text-sm text-slate-600 font-medium">{Math.round(results.match_score)}% Match</span>
+                        <span className="text-sm text-slate-600 font-medium">{Math.round(results?.match_score || 0)}% Match</span>
                       </div>
                       <div className="relative">
                         <div className="w-full bg-slate-200 rounded-full h-4 shadow-inner">
                           <div 
                             className="h-4 rounded-full transition-all duration-2000 ease-out relative overflow-hidden"
                             style={{ 
-                              width: `${results.match_score}%`,
+                              width: `${results?.match_score || 0}%`,
                               background: `linear-gradient(90deg, 
-                                ${results.match_score >= 80 ? '#10B981, #059669' : 
-                                  results.match_score >= 60 ? '#F59E0B, #D97706' : 
+                                ${(results?.match_score || 0) >= 80 ? '#10B981, #059669' : 
+                                  (results?.match_score || 0) >= 60 ? '#F59E0B, #D97706' : 
                                   '#EF4444, #DC2626'})`
                             }}
                           >
@@ -374,10 +374,10 @@ const CareerAssistant = () => {
                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                               </svg>
                             </div>
-                            Matched Skills ({results.matched_keywords.length})
+                            Matched Skills ({results?.matched_keywords?.length || 0})
                           </h4>
                           <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
-                            {results.matched_keywords.map((keyword, index) => (
+                            {(results?.matched_keywords || []).map((keyword, index) => (
                               <span
                                 key={index}
                                 className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-500 text-white shadow-sm hover:bg-green-600 transition-colors duration-200"
@@ -396,10 +396,10 @@ const CareerAssistant = () => {
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                               </svg>
                             </div>
-                            Missing Skills ({results.missing_keywords.length})
+                            Missing Skills ({results?.missing_keywords?.length || 0})
                           </h4>
                           <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
-                            {results.missing_keywords.map((keyword, index) => (
+                            {(results?.missing_keywords || []).map((keyword, index) => (
                               <span
                                 key={index}
                                 className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-orange-500 text-white shadow-sm hover:bg-orange-600 transition-colors duration-200"
@@ -421,7 +421,7 @@ const CareerAssistant = () => {
                         AI Summary
                       </h3>
                       <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200">
-                        <p className="text-slate-700 leading-relaxed">{results.analysis_summary}</p>
+                        <p className="text-slate-700 leading-relaxed">{results?.analysis_summary || 'Analysis completed successfully.'}</p>
                       </div>
                     </div>
 
@@ -434,7 +434,7 @@ const CareerAssistant = () => {
                         Interview Preparation
                       </h3>
                       <div className="space-y-4 max-h-96 overflow-y-auto">
-                        {results.interview_questions.map((qa, index) => (
+                        {(results?.interview_questions || []).map((qa, index) => (
                           <div key={index} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
                             <div className="flex items-start space-x-4">
                               <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
