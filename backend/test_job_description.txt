@@ -1,0 +1,26 @@
+Senior Backend Developer - Fintech
+
+We are looking for a Senior Python Developer with Django experience to build scalable APIs for our fintech platform. 
+
+Key Responsibilities:
+- Develop REST APIs using Python and Django
+- Work with PostgreSQL databases and optimize queries
+- Implement secure payment processing systems
+- Deploy applications on AWS (EC2, RDS, S3)
+- Ensure compliance with financial regulations
+- Mentor junior developers and conduct code reviews
+- Lead technical architecture decisions
+
+Requirements:
+- 5+ years of Python development experience
+- Strong experience with Django framework
+- Expertise in building REST APIs
+- PostgreSQL database management
+- AWS cloud services (EC2, RDS, S3, Lambda)
+- Experience with financial systems and security
+- Knowledge of payment processing (Stripe, PayPal)
+- Understanding of PCI DSS compliance
+- Git, Docker, CI/CD experience
+- Strong leadership and mentoring skills
+
+You'll be working in a fast-paced fintech startup environment where your decisions will directly impact our payment platform used by thousands of merchants.
