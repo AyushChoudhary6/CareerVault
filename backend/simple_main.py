@@ -39,7 +39,12 @@ app = FastAPI(title="CareerVault API", version="1.0.0")
 # Add CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173", 
+        "http://careervault-frontend-bucket-12345.s3-website.us-east-2.amazonaws.com",
+        "*"  # Allow all origins for now - restrict in production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

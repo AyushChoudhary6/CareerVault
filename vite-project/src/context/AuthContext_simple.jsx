@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://careervault-alb-115226963.us-east-2.elb.amazonaws.com';
 
 // Auth API calls
 const authAPI = {

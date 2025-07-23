@@ -2,10 +2,10 @@
  * API Service for CareerVault Backend - Simple JWT Version
  * 
  * This module handles all HTTP requests to the FastAPI backend
- * using JWT authentication and SQLite data storage.
+ * using JWT authentication and AWS DynamoDB data storage.
  */
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://careervault-alb-811389921.ap-south-1.elb.amazonaws.com';
 
 // Helper function to get auth token from localStorage
 const getAuthToken = () => {

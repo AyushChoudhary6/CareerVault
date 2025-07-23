@@ -27,7 +27,7 @@ const CareerAssistant = () => {
     
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('http://localhost:8000/api/ai/analyze-job-fit', {
+      const response = await fetch('http://careervault-alb-115226963.us-east-2.elb.amazonaws.com/api/ai/analyze-job-fit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const CareerAssistant = () => {
       formData.append('resume_file', resumeFile);
       formData.append('job_description', jobDescription);
 
-      const response = await fetch('http://localhost:8000/api/ai/test-analyze-resume-file', {
+      const response = await fetch('http://careervault-alb-115226963.us-east-2.elb.amazonaws.com/api/ai/test-analyze-resume-file', {
         method: 'POST',
         body: formData
       });
